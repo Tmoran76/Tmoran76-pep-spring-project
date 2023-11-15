@@ -70,8 +70,8 @@ public class SocialMediaController {
         return messageService.patchMessage(message_id, message);
         
     }
-   // @GetMapping("/accounts/{account_id}/messages")
-    //public List<Message> getAllMessagesByUser(@PathVariable int account_id){
-        //return messageService.getMessagesByUser(account_id);
-    //}
+   @GetMapping("/accounts/{account_id}/messages")
+    public List<Message> getAllMessagesByUser(@PathVariable int account_id){
+        return messageService.getMessagesByUser(account_id);
+    }
 }

@@ -70,16 +70,16 @@ public class MessageService {
         return ResponseEntity.status(400).body(null);
         
     }
-    // public List<Message> getMessagesByUser(int account_id){
-    //     List<Message> allMessages = allMessage();
-    //     List<Message> foundMessages = new ArrayList<>();
-    //     for(Message m: allMessages){
-    //         if(m.getPosted_by().equals(account_id)){
-    //             foundMessages.add(m);
-    //         }
-    //     }
-    //     return foundMessages;
-    // }
+    public List<Message> getMessagesByUser(int account_id){
+        List<Message> allMessages = allMessage();
+        List<Message> foundMessages = new ArrayList<>();
+        for(Message m: allMessages){
+            if(m.getPosted_by().equals(account_id)){
+                foundMessages.add(m);
+            }
+        }
+        return foundMessages;
+    }
     
 
 }
