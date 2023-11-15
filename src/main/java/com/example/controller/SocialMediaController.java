@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,5 +56,12 @@ public class SocialMediaController {
     public ResponseEntity<Message> createMessage(@RequestBody Message message){
         return messageService.createMessage(message);
     }
-    
+    @GetMapping("/messages/{message_id}")
+    public Message getMessageByID(@PathVariable int message_id){
+        return messageService.getMessageByID(message_id);
+    }
+    @DeleteMapping("/messages/{message_id}")
+    public Integer deleteMessageByID(@PathVariable int message_id){
+        return messageService.deleteMessage(message_id);
+    }
 }

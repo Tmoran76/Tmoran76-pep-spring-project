@@ -34,6 +34,26 @@ public class MessageService {
         }
         return ResponseEntity.status(400).body(null);
     }
+    public Message getMessageByID(int message_id){
+        List<Message> allMessages = allMessage();
+        for(Message m: allMessages){
+            if(m.getMessage_id().equals(message_id)){
+                return m;
+            }
+        }
+        return null;
+
+    }
+    public Integer deleteMessage(int message_id){
+        List<Message> allMessages = allMessage();
+        for(Message m: allMessages){
+            if(m.getMessage_id().equals(message_id)){
+                messageRepository.delete(m);
+                return 1;
+            }
+        }
+        return null;
+    }
     
 
 }
